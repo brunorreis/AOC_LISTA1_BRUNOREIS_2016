@@ -1,0 +1,94 @@
+01. Maquina de Neuman: A Máquina de John Von Neumann é uma arquitetura de computador que armazena seus programas no mesmo espaço de memória que os dados, podendo manipular tais programas. Esta arquitetura é um projeto que utiliza uma unidade de processamento (CPU) e uma de armazenamento ("memória") para comportar, respectivamente, instruções e dados. A máquina proposta por Von Neumann reúne os seguintes componentes: Uma memória; Uma unidade aritmética e lógica (ALU); Uma unidade central de processamento (CPU); Uma Unidade de Controle (CU).
+02. Harvard e Princeton: 
+H: A Arquitetura de Harvard  baseia-se em um conceito mais recente, tendo surgido da necessidade de se pôr o microcontrolador para trabalhar mais rápido. É uma arquitetura de computador que se distingue por possuir duas memórias diferentes e independentes em termos de barramento e ligação ao processador. É utilizada nos microcontroladores PIC. Tem, como principal característica, o acesso à memória de dados de modo separado em relação à memória de programa. Baseada também na separação de barramentos de dados das memórias onde estão as instruções de programa e das memórias de dados, permite que um processador possa acessar as duas simultaneamente, obtendo um desempenho melhor do que a da Arquitetura de von Neumann, pois pode buscar uma nova instrução enquanto executa outra.
+
+P: Esta arquitetura é um projeto que utiliza uma unidade de processamento (CPU) e uma de armazenamento ("memória") para comportar, respectivamente, instruções e dados. A máquina proposta por Von Neumann reúne os seguintes componentes: Uma memória; Uma unidade aritmética e lógica (ALU); Uma unidade central de processamento (CPU); Uma Unidade de Controle (CU).
+3. 
+Área do waffer: π.r2 = 3,14 x 202 => 3,14 x 400 = 1256
+Custo por waffer = 100
+Defeitos por área = 0,5
+
+Chip A
+
+Chip por waffer(CW) = área do waffer/área do chip => CW = 1256/1 => CW = 1256
+
+Rendemento(REND) = 1/(1+(defeitos de área x área do chip/2))2 => 1/1+(0,5 x 1/2))2  = 0,64
+
+Custo por chip(CC) = Custo por Waffer/CW x REND => CC = 100/1256 x 0,64 => CC = 0,12
+
+Chip B
+
+CW = 1256/4 = 314
+
+REND = 1/1+(0,5 x 4/2))2 => REND = 0,25
+
+CC = 100/314 x 0,25 = CC = 1,27
+
+Chip C
+
+CW 1256/9 = 139,5
+
+REND = 1/(1+(0,5 X 9/2))2 => REND = 0,094
+
+CC = 100/139,5 X 0,09 = 7,62
+
+4. 
+Compilador 1
+
+7 instruções
+(5 x 1) + (1 x 2) + (1 x 3) = 10 ciclos
+Tempo = N° de ciclos/frequência => Tempo = 10x109/500x106 = 20s
+MIPS = N° de instruções/tempo x 106 => MIPS = 7/0,02 x 106 => MIPS = 350
+
+Compilador 2
+
+12 instruções
+(10 X 1) + (1 X 2) + (1 X 3) = 15 Ciclos
+Tempo = N° de ciclo/frequência => Tempo = 15/500 => Tempo = 30s
+MIPS = N° de instruções/Tempo x 106 => MIPS = 12/0,03 X 106 => MIPS = 400
+
+O compilador 1 apresenta melhor desempenho se comparado com o compilador 2.
+
+5. 
+Programa 1
+
+Performancem1 = 1/tempo de execução =>  Performancem1 = 1/10 => Performancem1 = 0,1
+Performancem2 = 1/tempo de execução =>  Performancem2 = 1/5 => Performancem2 = 0,2
+
+Quanta vezes uma máquina é mais rápida que outra:
+0,2/0,1 = 2
+
+Logo, M2 é duas vezes mais rápida na execução do programa que M1.
+
+Programa 2
+
+Performancem1 = 1/tempo de execução =>  Performancem1 = 1/3 => Performancem1 = 0,33
+Performancem2 = 1/tempo de execução =>  Performancem2 = 1/4 => Performancem2 = 0,25
+
+Quanta vezes uma máquina é mais rápida que outra:
+0,33/0,25 = 1,33
+
+Logo, M1 é 1,32 vezes mais rápida na execução do programa que M2.
+
+
+6. A arquitetura CISC (Complex Instruction Set Computer) utiliza uma grande quantidade de instruções, além de ter poder trabalhar diferentes tamanho de instruçõe. Devido a esta característica de muitas instruções, facilita o trabalho dos programadores. Ex: PC, Macintosh.
+A arquitetura RISC (Reduced Instruction Set Computer) utiliza uma quantidade menor de instruções, todas de mesmo tamanho, onde as operações ocorrem somente entre os registradores. Ex: MIPS, Spark.
+Nos dias atuais, é utilizado o conceito de Arquitetura hibrida incorporando o conceito das duas arquiteturas, buscando sempre o melhor desempenho.
+
+7. $s0(16) = k  $s1(17) = f  $s2(18) = g  $s3(19) =h  $s4(20) = i  $s5(21) = j
+     $t0(8) = 0  $t1(9) = 1 $t2(10) = 2  $t3(11) = 3
+
+       Bne $s0, $t0, L1 //Pula para instrução L1 se $s4 não for igual a $t0
+       Add $s1, $s4, $s5 // f = i + j
+   J: EXIT:
+L1: Bne $s0, $t2, L2 //Pula para instrução L2 se $s4 não for igual a 2 
+      Add $s1, $s2, $s3 //f = g + h
+   J: EXIT
+L2: Bne $s0, $t3, L3 //Pula para instrução L3 se $s4 não for igual a 3
+      Sub $s1, $s2,$s3
+  J: EXIT
+L3: Bne $s0, $t4, EXIT //Pula para instrução EXIT se $s4 não for igual a 4
+      Sub $s1, $s4, $s5
+      EXIT:
+
+
